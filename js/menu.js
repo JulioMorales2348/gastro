@@ -35,6 +35,54 @@ const platillos = [
     // Puedes agregar más platillos aquí...
 ];
 
+// Carrito de Compras
+let carrito = [];
+
+// Event Listener principal para agregar al carrito (usando delegación de eventos)
+document.addEventListener('DOMContentLoaded', () => {
+    // Cargar carrito de localStorage si existe
+    carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    
+    mostrarPlatillos(platillos);
+
+    // ... (el código de los filtros va aquí) ...
+
+    const menuContainer = document.getElementById('menu-container');
+    menuContainer.addEventListener('click', (event) => {
+        // Identificamos si el clic fue en un botón de "Agregar al carrito"
+        if (event.target.classList.contains('btn-agregar')) {
+            const platilloId = parseInt(event.target.getAttribute('data-id'));
+            agregarAlCarrito(platilloId);
+        }
+    });
+});
+
+function agregarAlCarrito(id) {
+    // Buscamos si el platillo ya existe en el carrito para aumentar la cantidad
+    const platilloExistente = carrito.find(item => item.id === id);
+
+    if (platilloExistente) {
+        platilloExistente.cantidad++;
+    } else {
+        // Si no existe, lo buscamos en la lista original y lo agregamos
+        const platilloAAgregar = platillos.find(item => item.id === id);
+        carrito.push({
+            ...platilloAAgregar,
+            cantidad: 1
+        });
+    }
+
+    // Guardamos el carrito actualizado en localStorage
+    guardarCarritoEnStorage();
+    
+    // Opcional: Mostrar una confirmación
+    alert('¡Platillo agregado al carrito!');
+}
+
+function guardarCarritoEnStorage() {
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+}
+
 // Espera a que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', () => {
     mostrarPlatillos(platillos);
@@ -73,7 +121,7 @@ function mostrarPlatillos(listaPlatillos) {
                         <h5 class="card-title">${platillo.nombre}</h5>
                         <p class="card-text">${platillo.descripcion}</p>
                         <p class="card-text fw-bold">$${platillo.precio.toFixed(2)}</p>
-                        <button class="btn btn-primary">Agregar al carrito</button>
+                        <button class="btn btn-primary btn-agregar" data-id="${platillo.id}">Agregar al carrito</button>
                     </div>
                 </div>
             </div>
