@@ -1,0 +1,44 @@
+/* --- ESTILOS GENERALES Y FUENTES --- */
+body {
+    font-family: 'Poppins', sans-serif; /* Aplicar la nueva fuente a todo el sitio */
+    background-color: #f8f9fa; /* Un gris muy claro para el fondo */
+}
+
+/* --- ESTILOS DEL NAVBAR --- */
+.navbar-dark {
+    background-color: #2c3e50 !important; /* Un azul oscuro para el navbar, !important para sobreescribir Bootstrap */
+}
+
+/* --- ESTILOS PARA LAS TARJETAS (CARDS) DEL MENÚ --- */
+.card {
+    border: none; /* Quitar el borde por defecto */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil para efecto "flotante" */
+    transition: transform 0.3s ease; /* Transición suave para el hover */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Levantar la tarjeta ligeramente al pasar el cursor */
+}
+
+.card-title {
+    color: #34495e; /* Un color de título más suave que el negro puro */
+}
+
+/* --- ESTILOS PARA LOS BOTONES --- */
+.btn-primary {
+    background-color: #e67e22; /* Naranja quemado para el botón primario */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #d35400; /* Un naranja más oscuro para el hover */
+}
+
+.btn-success {
+    background-color: #27ae60; /* Verde para confirmaciones */
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #229954;
+}

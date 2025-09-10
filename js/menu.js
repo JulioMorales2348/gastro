@@ -121,7 +121,7 @@ function mostrarPlatillos(listaPlatillos) {
                         <h5 class="card-title">${platillo.nombre}</h5>
                         <p class="card-text">${platillo.descripcion}</p>
                         <p class="card-text fw-bold">$${platillo.precio.toFixed(2)}</p>
-                        <button class="btn btn-primary btn-agregar" data-id="${platillo.id}">Agregar al carrito</button>
+                        <button class="btn btn-primary btn-agregar" data-id="${platillo.id}"><i class="bi bi-cart-plus"></i> Agregar al carrito</button>
                     </div>
                 </div>
             </div>
