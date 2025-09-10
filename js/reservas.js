@@ -18,13 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // --- AÑADIR ESTA VALIDACIÓN ---
         // Validación de número de personas
         if (personas < 1 || personas > 6) {
             alert('El número de personas debe ser entre 1 y 6.');
             return;
         }
-        // -----------------------------
 
         // Validación de email con una expresión regular simple
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
